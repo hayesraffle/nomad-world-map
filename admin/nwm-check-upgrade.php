@@ -17,10 +17,10 @@ function nwm_version_updates()
 
     $current_version = get_option('nwm_version');
 
-    if (version_compare($current_version, NWN_VERSION_NUM, '==='))
+    if (version_compare($current_version ?: '0', NWN_VERSION_NUM, '=='))
         return;
 
-    if (version_compare($current_version, '1.0.3', '<')) {
+    if (version_compare($current_version ?: '0', '1.0.3', '<')) {
         $settings = get_option('nwm_settings');
 
         if (is_array($settings) && empty($settings['zoom_level'])) {
@@ -30,7 +30,7 @@ function nwm_version_updates()
         }
     }
 
-    if (version_compare($current_version, '1.1', '<')) {
+    if (version_compare($current_version ?: '0', '1.1', '<')) {
 
         /* Add the thumb_id field to the table */
         $sql = "CREATE TABLE " . $wpdb->nwm_routes . " (
@@ -103,7 +103,7 @@ function nwm_version_updates()
         nwm_delete_all_transients();
     }
 
-    if (version_compare($current_version, '1.1.4', '<')) {
+    if (version_compare($current_version ?: '0', '1.1.4', '<')) {
         $settings = get_option('nwm_settings');
 
         if (is_array($settings)) {
@@ -129,7 +129,7 @@ function nwm_version_updates()
         nwm_delete_all_transients();
     }
 
-    if (version_compare($current_version, '1.2', '<')) {
+    if (version_compare($current_version ?: '0', '1.2', '<')) {
 
         /* Add the country_code field to the table */
         $sql = "CREATE TABLE " . $wpdb->nwm_routes . " (
@@ -169,11 +169,11 @@ function nwm_version_updates()
 
     }
 
-    if (version_compare($current_version, '1.2.21', '<')) {
+    if (version_compare($current_version ?: '0', '1.2.21', '<')) {
         nwm_delete_all_transients();
     }
 
-    if (version_compare($current_version, '1.2.30', '<')) {
+    if (version_compare($current_version ?: '0', '1.2.30', '<')) {
         $settings = get_option('nwm_settings');
 
         if (is_array($settings)) {

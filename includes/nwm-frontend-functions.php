@@ -489,7 +489,7 @@ function nwm_frontend_scripts( $frontend_data, $map_count ) {
              'readMore' 	   => $frontend_data['settings']['read_more'],
              'readMoreLabel'   => sanitize_text_field( stripslashes( $frontend_data['settings']['read_more_label'] ) ),
              'locationHeader'  => $frontend_data['settings']['location_header'],
-             'hideTooltip'  => $frontend_data['settings']['initial_tooltip']
+             'hideTooltip'  => isset($frontend_data['settings']['initial_tooltip']) ? $frontend_data['settings']['initial_tooltip'] : 0
          );
 
          wp_localize_script( 'nwm-gmap-markers', 'nwmSettings', $params );

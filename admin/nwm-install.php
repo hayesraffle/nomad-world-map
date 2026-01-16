@@ -24,7 +24,10 @@ function nwm_default_settings()
             'content_location' => 'slider',
             'location_header' => '0',
             'read_more_label' => 'Read more',
-            'latlng_input' => '0'
+            'latlng_input' => '0',
+            'initial_tooltip' => '0',
+            'google_api_browser_key' => '',
+            'google_api_server_key' => ''
         );
 
         update_option('nwm_settings', $settings);
